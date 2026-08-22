@@ -78,7 +78,7 @@ Everything is intent-routed from natural language; no commands to memorize. The 
 | International | Locale keycode headers (zmk-locale-generator), unicode input per OS, dead-key gotchas, non-US shifted pairs |
 | Layouts | Any published layout: curated guidance for Colemak-DH, Graphite, Gallium, Canary, Dvorak, plus spec-driven generation for Workman, Sturdy, Focal, Engram, Hands Down, Semimak, APT and others |
 | Tooling | keymap-drawer diagrams (per-layer, dark-mode aware, trackballs drawn in place), GitHub Actions integration, README generation |
-| Debugging | Build-error playbooks plus a 16-entry field-verified pitfall database |
+| Debugging | Build-error playbooks plus a 21-entry field-verified pitfall database |
 
 ## Support tiers
 
@@ -106,7 +106,7 @@ skills/keymap-ai/
     modules-zmk.md            west.yml cookbook for community modules
     layouts.md                alt-layout guidance and generation
     diagrams.md               keymap-drawer + CI + README conventions
-    pitfalls.md             16 field-verified failure modes with fixes
+    pitfalls.md             21 field-verified failure modes with fixes
     debug.md                build-error and hardware-symptom playbooks
   scripts/
     draw_zmk.py             deterministic parse/augment/draw pipeline
