@@ -19,7 +19,17 @@ Works with Claude Code, Codex CLI, Cursor, Gemini CLI, opencode, and any other h
 npx skills add johncattrall/keymap-ai
 ```
 
-That detects your installed agents and adds the skill to each. Or copy this repo into your agent's skills directory manually (e.g. `~/.claude/skills/keymap-ai` or `~/.agents/skills/keymap-ai`).
+That detects your installed agents (Claude Code, Codex, Cursor, Gemini CLI, opencode, ...) and adds the skill to each.
+
+Codex users can alternatively install it as a skill-only plugin:
+
+```
+codex plugin marketplace add johncattrall/keymap-ai
+```
+
+or from inside Codex: `$skill-installer install https://github.com/johncattrall/keymap-ai/tree/main/skills/keymap-ai`
+
+Manual fallback: copy `skills/keymap-ai/` into your agent's skills directory (e.g. `~/.claude/skills/` or `~/.agents/skills/`).
 
 ## A real before and after
 
@@ -82,22 +92,24 @@ QMK users: everything the skill generates can be validated with `qmk compile` be
 ## What's inside
 
 ```
-SKILL.md                    intent routing: audit / apply / pointing / draw / layout / platform / debug
-references/
-  audit-zmk.md              the audit checklist (behaviors, structure, system layer, locale, power)
-  audit-qmk.md              the QMK equivalent (beta)
-  behaviors-zmk.md          timeless HRM, smart layers, mod-morphs, soft off
-  behaviors-qmk.md          tap-hold tuning, Caps Word, key overrides (beta)
-  pointing-zmk.md           per-layer motion processing: listener semantics, gestures
-  devices-zmk.md            trackpads, trackpoints, encoders, displays, dongles, RGB
-  os-and-locale.md          multi-OS patterns, window managers, international layouts
-  modules-zmk.md            west.yml cookbook for community modules
-  layouts.md                alt-layout guidance and generation
-  diagrams.md               keymap-drawer + CI + README conventions
-  pitfalls.md               16 field-verified failure modes with fixes
-  debug.md                  build-error and hardware-symptom playbooks
-scripts/
-  draw_zmk.py               deterministic parse/augment/draw pipeline
+.codex-plugin/plugin.json   Codex skill-only plugin manifest
+skills/keymap-ai/
+  SKILL.md                  intent routing: audit / apply / pointing / draw / layout / platform / debug
+  references/
+    audit-zmk.md              the audit checklist (behaviors, structure, system layer, locale, power)
+    audit-qmk.md              the QMK equivalent (beta)
+    behaviors-zmk.md          timeless HRM, smart layers, mod-morphs, soft off
+    behaviors-qmk.md          tap-hold tuning, Caps Word, key overrides (beta)
+    pointing-zmk.md           per-layer motion processing: listener semantics, gestures
+    devices-zmk.md            trackpads, trackpoints, encoders, displays, dongles, RGB
+    os-and-locale.md          multi-OS patterns, window managers, international layouts
+    modules-zmk.md            west.yml cookbook for community modules
+    layouts.md                alt-layout guidance and generation
+    diagrams.md               keymap-drawer + CI + README conventions
+    pitfalls.md             16 field-verified failure modes with fixes
+    debug.md                build-error and hardware-symptom playbooks
+  scripts/
+    draw_zmk.py             deterministic parse/augment/draw pipeline
 ```
 
 ## Why this exists

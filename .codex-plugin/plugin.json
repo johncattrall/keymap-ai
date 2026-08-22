@@ -1,0 +1,6 @@
+{
+  "name": "keymap-ai",
+  "version": "0.2.0",
+  "description": "Keyboard firmware expert: audit ZMK/QMK keymaps, tune home row mods, make trackballs layer-aware, generate keymap diagrams, add alt layouts, debug firmware failures.",
+  "skills": "./skills/"
+}
