@@ -1,0 +1,3 @@
+default:
+  - {t: Scroll only, type: trackball}
+  - {t: Pointer auto, type: trackball}

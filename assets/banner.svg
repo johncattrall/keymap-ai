@@ -1,0 +1,59 @@
+<svg width="1280" height="320" viewBox="0 0 1280 320" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#15181e"/>
+      <stop offset="1" stop-color="#1d222b"/>
+    </linearGradient>
+    <radialGradient id="ball" cx="0.35" cy="0.3" r="1">
+      <stop offset="0" stop-color="#e05563"/>
+      <stop offset="0.45" stop-color="#b3202c"/>
+      <stop offset="1" stop-color="#6e131c"/>
+    </radialGradient>
+    <linearGradient id="keyface" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#262c37"/>
+      <stop offset="1" stop-color="#20252e"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="320" rx="16" fill="url(#panel)"/>
+
+  <!-- right side: minimalist split keyboard mark -->
+  <g transform="translate(880,74)" opacity="0.9">
+    <!-- left half, columnar stagger -->
+    <g fill="url(#keyface)" stroke="#39414f" stroke-width="1.5">
+      <rect x="0"   y="30" width="40" height="40" rx="9"/>
+      <rect x="48"  y="18" width="40" height="40" rx="9"/>
+      <rect x="96"  y="6"  width="40" height="40" rx="9"/>
+      <rect x="144" y="12" width="40" height="40" rx="9"/>
+      <rect x="192" y="16" width="40" height="40" rx="9"/>
+      <rect x="0"   y="78" width="40" height="40" rx="9"/>
+      <rect x="48"  y="66" width="40" height="40" rx="9"/>
+      <rect x="96"  y="54" width="40" height="40" rx="9"/>
+      <rect x="144" y="60" width="40" height="40" rx="9"/>
+      <rect x="192" y="64" width="40" height="40" rx="9"/>
+      <rect x="112" y="112" width="40" height="40" rx="9" transform="rotate(8 132 132)"/>
+      <rect x="162" y="120" width="40" height="40" rx="9" transform="rotate(16 182 140)"/>
+    </g>
+    <!-- highlighted home row key -->
+    <rect x="96" y="54" width="40" height="40" rx="9" fill="#2c3542" stroke="#b3202c" stroke-width="2"/>
+    <!-- trackball nested at the thumb -->
+    <circle cx="248" cy="140" r="30" fill="#0e1013"/>
+    <circle cx="248" cy="140" r="25" fill="url(#ball)"/>
+    <ellipse cx="239" cy="130" rx="9" ry="6" fill="#ffffff" opacity="0.28"/>
+  </g>
+
+  <!-- wordmark -->
+  <g font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+    <text x="68" y="152" font-size="76" font-weight="700" letter-spacing="-2.5" fill="#eef1f6">keymap<tspan fill="#d64550">-ai</tspan></text>
+    <text x="70" y="204" font-size="24" font-weight="500" fill="#8b94a5" letter-spacing="0.2">Your keymap, forged by your coding agent.</text>
+    <g font-size="16" font-weight="600" letter-spacing="0.8">
+      <text x="70" y="252" fill="#5d6675">
+        <tspan fill="#9aa4b5">ZMK</tspan><tspan dx="14" fill="#39414f">/</tspan><tspan dx="14" fill="#9aa4b5">QMK</tspan>
+        <tspan dx="26">AUDITS</tspan>
+        <tspan dx="26">TRACKBALLS</tspan>
+        <tspan dx="26">DIAGRAMS</tspan>
+        <tspan dx="26">LAYOUTS</tspan>
+      </text>
+    </g>
+  </g>
+</svg>

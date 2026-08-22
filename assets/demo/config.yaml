@@ -1,0 +1,146 @@
+# Configuration for keymap-drawer (https://github.com/caksoylar/keymap-drawer)
+# Renders config/crosses.keymap to keymap-drawer/crosses.svg
+parse_config:
+  zmk_keycode_map:
+    LEFT_CONTROL: "⌃"
+    RIGHT_CONTROL: "⌃"
+    LEFT_ALT: "⌥"
+    RIGHT_ALT: "⌥"
+    LEFT_GUI: "⌘"
+    RIGHT_GUI: "⌘"
+    LEFT_SHIFT: "⇧"
+    RIGHT_SHIFT: "⇧"
+    LEFT_ARROW: "←"
+    DOWN_ARROW: "↓"
+    UP_ARROW: "↑"
+    RIGHT_ARROW: "→"
+    LEFT: "←"
+    DOWN: "↓"
+    UP: "↑"
+    RIGHT: "→"
+    BACKSPACE: "Bksp"
+    ESCAPE: "Esc"
+    ENTER: "Enter"
+    SPACE: "Space"
+    PAGE_UP: "PgUp"
+    PAGE_DOWN: "PgDn"
+    K_MUTE: "Mute"
+    C_VOL_UP: "Vol+"
+    C_VOL_DN: "Vol-"
+    CAPS: "Caps"
+    EQUAL: "="
+    SLASH: "/"
+    RBKT: "]"
+    COMMA: ","
+    DOT: "."
+    PLUS: "+"
+    MINUS: "-"
+    ASTRK: "*"
+    FSLH: "/"
+    LCTRL: "⌃"
+    RCTRL: "⌃"
+    LALT: "⌥"
+    RALT: "⌥"
+    LGUI: "⌘"
+    RGUI: "⌘"
+    LSHFT: "⇧"
+    RSHFT: "⇧"
+
+  raw_binding_map:
+    # smart numpad thumb: tap = num_word, double tap = numpad lock, triple = layer 1 lock
+    "&td_num": {t: "NumWord", s: "2x Lock"}
+    "&studio_unlock": "Studio unlock"
+    "&soft_off": {t: "Power Off", h: "hold 2s"}
+    "&bootloader": "Bootloader"
+    "&sys_reset": "Reset"
+    "&out OUT_TOG": "USB/BT"
+    "&mkp LCLK": "L Click"
+    "&mkp RCLK": "R Click"
+    "&mkp MCLK": "M Click"
+    "&mkp MB1": "L Click"
+    "&mkp MB2": "R Click"
+    "&mkp MB4": "Back"
+    "&mkp MB5": "Fwd"
+    # autoshift alphas (hold types the shifted character)
+    "&as Q": "Q"
+    "&as W": "W"
+    "&as E": "E"
+    "&as R": "R"
+    "&as T": "T"
+    "&as Y": "Y"
+    "&as U": "U"
+    "&as I": "I"
+    "&as O": "O"
+    "&as P": "P"
+    "&as A": "A"
+    "&as Z": "Z"
+    "&as X": "X"
+    "&as C": "C"
+    "&as V": "V"
+    "&as B": "B"
+    "&as N": "N"
+    "&as M": "M"
+    "&as COMMA": {t: ",", s: "<"}
+    "&as DOT": {t: ".", s: ">"}
+    "&as FSLH": {t: "/", s: "?"}
+    "&as APOS": {t: "'", s: "\""}
+    "&as SQT": {t: "'", s: "\""}
+    "&as SEMICOLON": {t: ";", s: ":"}
+    "&as GRAVE": {t: "`", s: "~"}
+    "&as MINUS": {t: "-", s: "_"}
+    "&as LEFT_BRACKET": {t: "[", s: "{"}
+    "&as RIGHT_BRACKET": {t: "]", s: "}"}
+    "&as BACKSLASH": {t: "\\", s: "|"}
+    "&as NUMBER_1": {t: "1", s: "!"}
+    "&as NUMBER_2": {t: "2", s: "@"}
+    "&as NUMBER_3": {t: "3", s: "#"}
+    "&as NUMBER_4": {t: "4", s: "$"}
+    "&as NUMBER_5": {t: "5", s: "%"}
+    "&as NUMBER_6": {t: "6", s: "^"}
+    "&as N7": {t: "7", s: "&"}
+    "&as N8": {t: "8", s: "*"}
+    "&as NUMBER_9": {t: "9", s: "("}
+    "&as NUMBER_0": {t: "0", s: ")"}
+    # shifted macro (window manager chords)
+    "&shifted ENTER": "⇧ Enter"
+    "&shifted LA(H)": "⇧⌥ H"
+    "&shifted LA(J)": "⇧⌥ J"
+    "&shifted LA(K)": "⇧⌥ K"
+    "&shifted LA(L)": "⇧⌥ L"
+    "&shifted LA(SPACE)": "⇧⌥ Spc"
+    "&shifted LA(ENTER)": "⇧⌥ Ent"
+
+draw_config:
+  append_colon_to_layer_header: false
+  # transparent background; auto dark mode flips text/key colors with the
+  # viewer's prefers-color-scheme so the SVGs stay readable on GitHub dark
+  dark_mode: auto
+  draw_key_sides: true
+  svg_extra_style: |
+    svg.keymap {
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 11px;
+    }
+    path.combo {
+      stroke-dasharray: 4, 4;
+      stroke-opacity: 0.3;
+    }
+    .trans.tap, .ghost.tap {
+      opacity: 0.4;
+    }
+    rect.trackball {
+      rx: 34px;
+      ry: 34px;
+      fill: #b3202c;
+      stroke: #7e161f;
+    }
+    rect.trackball.side {
+      fill: #7e161f;
+      stroke: #5c1017;
+    }
+    text.trackball {
+      fill: #ffffff;
+      stroke: #7e161f;
+      stroke-width: 2.5;
+      paint-order: stroke;
+    }

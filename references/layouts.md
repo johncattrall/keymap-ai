@@ -11,7 +11,7 @@ Quick chooser:
 - **Canary**: roll-heavy feel, for people who liked Colemak but want more rolls.
 - **Dvorak**: historical; rarely the right recommendation today.
 
-Fetch the layout's official spec (letters AND shift pairs) from its repo at generation time; do not recite from memory.
+The curated list above is guidance, not a limit: generation works for ANY published layout (Workman, Sturdy, Focal, Engram, Hands Down variants, Semimak, MTGAP, APT, Norman, ...) because the recipe is spec-driven. Fetch the layout's official spec (letters AND shift pairs) from its repo at generation time; do not recite from memory. For obscure layouts without a canonical spec repo, ask the user to paste their reference grid.
 
 ## Generation recipe (ZMK)
 

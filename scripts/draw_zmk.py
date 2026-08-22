@@ -89,19 +89,27 @@ def main() -> int:
     draw = base + ["draw", str(parsed_path), "-j", draw_layout_path]
     if args.layout_name:
         draw += ["-l", args.layout_name]
+    generated = []
     for layer in km["layers"]:
-        run(draw + ["-s", layer], out / f"{name}_{slug(layer)}.svg")
+        target = out / f"{name}_{slug(layer)}.svg"
+        run(draw + ["-s", layer], target)
+        generated.append(target)
         print(f"drew {layer}")
-    run(draw, out / f"{name}.svg")
+    combined = out / f"{name}.svg"
+    run(draw, combined)
+    generated.append(combined)
 
-    # oversize declared dimensions so GitHub renders full-width (see diagrams.md)
-    pat = re.compile(r'^<svg width="([0-9.]+)" height="([0-9.]+)"')
-    for svg_path in out.glob("*.svg"):
+    # Oversize declared dimensions to 2x the viewBox so GitHub renders
+    # full-width (see diagrams.md). Only touch files generated THIS run,
+    # and only when still at 1x, so re-runs never compound the scaling.
+    pat = re.compile(r'^<svg width="([0-9.]+)" height="([0-9.]+)" viewBox="0 0 ([0-9.]+) ([0-9.]+)"')
+    for svg_path in generated:
         svg = svg_path.read_text()
         m = pat.match(svg)
-        if m:
-            w, h = int(float(m.group(1))) * 2, int(float(m.group(2))) * 2
-            svg_path.write_text(pat.sub(f'<svg width="{w}" height="{h}"', svg, count=1))
+        if m and abs(float(m.group(1)) - float(m.group(3))) < 0.01:
+            w, h = int(float(m.group(3))) * 2, int(float(m.group(4))) * 2
+            svg_path.write_text(pat.sub(
+                f'<svg width="{w}" height="{h}" viewBox="0 0 {m.group(3)} {m.group(4)}"', svg, count=1))
     print("done")
     return 0
 

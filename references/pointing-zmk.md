@@ -1,6 +1,6 @@
-# ZMK pointing devices: trackballs, per-layer behavior, gestures
+# ZMK pointing: per-layer motion processing and gestures
 
-Hardware-verified on a dual-PMW3610 wireless split (nice!nano v2, ZMK v0.3). The listener semantics below were confirmed against `app/src/pointing/input_listener.c`; they are the difference between working and mysteriously broken.
+Applies to ANY relative pointing device: trackball, Cirque trackpad, trackpoint (device-specific setup lives in devices-zmk.md). Hardware-verified on a dual-PMW3610 wireless split (nice!nano v2, ZMK v0.3). The listener semantics below were confirmed against `app/src/pointing/input_listener.c`; they are the difference between working and mysteriously broken.
 
 ## Where processing runs (the key architectural fact)
 

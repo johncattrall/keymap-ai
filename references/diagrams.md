@@ -23,6 +23,10 @@ Physical layouts only know keys, so add hardware as extra layout entries plus pe
 3. After parsing, append the per-layer entries to each layer's key list, then draw with the augmented layout.
 4. Style via `type`-derived classes: `rect.trackball { rx/ry for roundness; fill; }` with `.side` variant for depth, and outlined white text. A red ball matching the hardware reads instantly.
 
+## Diff visualization
+
+To show an audit change visually, render before/after images and give changed keys `type: added` (or `removed`) in the drawer YAML, with self-colored CSS (`rect.added { fill: #2f7d46; }` plus white outlined text) so it reads in both themes. Green additions on an otherwise plain board communicate a finding faster than prose.
+
 ## Full-width GitHub rendering
 
 GitHub clamps images with `max-width: 100%` but renders dimensionless SVGs tiny. Post-process: double the declared width/height attributes (keep viewBox); images then render at exactly full column width, crisp.

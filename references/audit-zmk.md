@@ -14,7 +14,7 @@ Read every file first: `config/*.keymap`, `config/*.conf`, `build.yaml`, `config
 
 - **Untuned hold-taps**: `&mt`/`&lt` on defaults (hold-preferred-ish, 200 ms, no positional awareness) under home row mods = misfires during fast rolls. Fix: timeless HRM recipe (see behaviors-zmk.md).
 - **Conflicting shift systems**: autoshift + HRM shift + caps_word coexisting means inconsistent capitals. Flag which keys use which system; recommend consolidation, but respect deliberate hybrids (autoshift users often keep Shift for selection only, which changes GACS ordering advice).
-- **Mod order vs platform**: GACS is the default reference, but on macOS Cmd belongs on the index fingers; on Windows/Linux Ctrl does. Ask or infer the platform before recommending mod moves.
+- **Mod order vs platform**: GACS is the default reference, but on macOS Cmd belongs on the index fingers; on Windows/Linux Ctrl does. Ask or infer the platform before recommending mod moves (tables in os-and-locale.md). Multi-OS users: check for the BT-profile-plus-OS-layer pattern.
 - **Key repeat lost**: `quick-tap-ms = <0>` on a hold-tap kills hold-to-repeat. Suggest ~150-200 unless intentional.
 - **`&to` lock round trips**: locking layers with `&to N` then `&to 0` invites stuck-layer mistakes. Consider layer-taps, smart layers (num_word), or tap-dance hybrids that preserve the lock as double-tap.
 - **Thumb holds that fire on long presses**: `&mt X SPACE` emits X on any slow space. Only flag if X is not a deliberate feature (users bind dictation/PTT here on purpose; ask).
@@ -41,9 +41,13 @@ The system/settings layer should carry, reachable even one-handed:
 
 Every keycode family needs its header: `&bt` needs `dt-bindings/zmk/bt.h`, `&out` needs `outputs.h`, pointing needs `pointing.h`, RGB needs `rgb.h`. A missing include surfaces as a devicetree "expected number or parenthesized expression" parse error at the first use.
 
-## Pointing devices present?
+## Input devices present?
 
-If the board has trackballs/encoders, additionally run the checks in pointing-zmk.md: where processing happens (peripheral vs central), layer-awareness, automouse vs temp-layer, timer refresh sources.
+Encoders: check per-layer `sensor-bindings` (bound only on base = wasted). Displays: defined-but-disabled nodes, widget config. If the board has pointing devices (ball/trackpad/trackpoint), additionally run the checks in pointing-zmk.md and devices-zmk.md: where processing happens (peripheral vs central), layer-awareness, automouse vs temp-layer, timer refresh sources.
+
+## Locale check
+
+Host set to a non-US layout while the keymap uses US keycode names: works, but keymap and diagrams lie. Recommend joelspadin locale headers (os-and-locale.md). Autoshift/mod-morph shifted pairs assume US pairing; re-derive for the host layout.
 
 ## Power checks
 

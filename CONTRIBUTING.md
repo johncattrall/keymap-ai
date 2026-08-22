@@ -27,6 +27,7 @@ Thanks for helping. This project's value is verified knowledge, so the bar for c
 
 - Skill format: `npx skills-ref validate .`
 - Scripts: run `scripts/draw_zmk.py` against any public zmk-config with an info.json layout.
+- README assets: regenerate with the skill's own pipeline from `assets/demo/` (real ZMK keymaps, drawn by `scripts/draw_zmk.py` with the demo config and trackball label files); assets must never be hand-drawn.
 - Content: the acceptance bar for audit-checklist changes is that an agent using the skill on a real config finds true things and no false things.
 
 ## Process

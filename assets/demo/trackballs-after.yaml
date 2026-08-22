@@ -1,0 +1,12 @@
+# What each trackball does on each layer, drawn as two extra "keys" in the
+# keymap diagrams. Order: [left ball, right ball]. Edit freely; layers not
+# listed fall back to "default".
+default:
+  - {t: "Scroll", h: "v+h, snap", type: trackball}
+  - {t: "Pointer", h: "auto Mouse", type: trackball}
+Mouse:
+  - {t: "Precision", h: "0.75x pointer", type: trackball}
+  - {t: "Pointer", type: trackball}
+NumPad:
+  - {t: "Throw ⇄", h: "Swap ⇅", type: trackball}
+  - {t: "Resize ⇄", h: "Focus ⇅", type: trackball}
