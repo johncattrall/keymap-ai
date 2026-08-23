@@ -5,7 +5,9 @@ description: Expert assistant for ZMK and QMK keyboard firmware configs. Use whe
 
 # keymap-ai
 
-Expert knowledge for custom keyboard firmware: ZMK (stable tier, hardware-verified) and QMK (beta tier). Route on the user's intent, load only the references that intent needs, and always ground claims in the user's actual config files rather than assumptions.
+Turn your coding agent into a keyboard firmware expert: field-verified audits, tuning and upgrades for ZMK and QMK keymaps.
+
+ZMK is the stable tier (hardware-verified); QMK is beta. Route on the user's intent, load only the references that intent needs, and always ground claims in the user's actual config files rather than assumptions.
 
 ## First steps, always
 
