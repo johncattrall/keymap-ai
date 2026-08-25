@@ -122,7 +122,7 @@ Contributions are very welcome, especially: pitfalls you hit (symptom, cause, fi
 
 ## Credits
 
-Standing on the shoulders of the community: [ZMK](https://zmk.dev), [QMK](https://qmk.fm), [urob](https://github.com/urob) (timeless HRM, zmk-auto-layer), [caksoylar](https://github.com/caksoylar/keymap-drawer) (keymap-drawer), [joelspadin](https://github.com/joelspadin/zmk-locale-generator) (locale tooling), [getreuer](https://getreuer.info/posts/keyboards/) (QMK userspace patterns), [infused-kim](https://github.com/infused-kim/kb_zmk_ps2_mouse_trackpoint_driver) (trackpoint driver), and the module authors credited in `references/modules-zmk.md`.
+Standing on the shoulders of the community: [ZMK](https://zmk.dev), [QMK](https://qmk.fm), [urob](https://github.com/urob) (timeless HRM, zmk-auto-layer), [caksoylar](https://github.com/caksoylar/keymap-drawer) (keymap-drawer), [joelspadin](https://github.com/joelspadin/zmk-locale-generator) (locale tooling), [getreuer](https://getreuer.info/posts/keyboards/) (QMK userspace patterns), [infused-kim](https://github.com/infused-kim/kb_zmk_ps2_mouse_trackpoint_driver) (trackpoint driver), [itouuuuuuuuu](https://github.com/itouuuuuuuuu/zmk-battery-bar) and [carlosedp](https://github.com/carlosedp/zmk-split-battery) (per-half battery apps for macOS and Windows), and the module authors credited in `references/modules-zmk.md`.
 
 ## License
 
