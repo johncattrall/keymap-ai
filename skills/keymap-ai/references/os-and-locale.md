@@ -49,6 +49,30 @@ When wiring WM control into layers or pointer gestures, confirm the user's actua
 
 Collision check before binding: dictation/voice input (often a modified Space or a held key), Spotlight/PowerToys Run, screenshot chords. A "standard" WM chord that collides with the user's dictation trigger is a field-verified failure mode.
 
+## Per-half battery levels on the host (hardware-verified on macOS)
+
+Split centrals expose only their OWN battery over the standard Bluetooth
+battery service by default; the peripheral's level never reaches the host.
+Menu bar apps that show both halves (e.g. itouuuuuuuuu/zmk-battery-bar on
+macOS) need the central to fetch and proxy it. Add to the CENTRAL's .conf:
+
+```ini
+CONFIG_ZMK_BATTERY_REPORTING=y
+CONFIG_ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING=y
+CONFIG_ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY=y
+```
+
+Only the central needs reflashing. Three gotchas, all field-verified:
+battery data travels over Bluetooth GATT, so the host must be connected to
+the keyboard via BLE (USB alone shows nothing); the proxy adds a SECOND
+GATT battery service, and hosts cache GATT databases, so if only one level
+appears after reflashing, remove and re-pair the keyboard once to force
+fresh service discovery; native OS battery UIs often show only the first
+service, which is expected, the per-half readout comes from the app.
+Power cost is negligible: the peripheral already samples its battery on
+the default ~60 s interval, and a level is only transmitted when the
+integer percentage changes.
+
 ## International layouts (the "my keycodes type the wrong symbols" problem)
 
 ZMK sends HID usage codes; the HOST's layout maps them to characters. `&kp SEMI` types ö on a German layout because the host says so. Tooling:

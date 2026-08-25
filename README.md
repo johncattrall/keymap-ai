@@ -74,7 +74,7 @@ Everything is intent-routed from natural language; no commands to memorize. The 
 | Behaviors | Timeless home row mods, smart layers (numword), caps word, tap-dance hybrids, mod-morphs, autoshift trade-offs, travel soft-off |
 | Pointing | Trackballs, Cirque trackpads, PS/2 trackpoints: per-layer processing, scroll with axis snapping, precision modes, motion-to-keypress gestures |
 | Other hardware | Rotary encoders (per-layer bindings), OLED/nice!view displays, RGB, status widgets |
-| Platform | macOS/Windows/Linux modifier conventions, multi-OS profile+layer switching, window manager tables (Amethyst, Rectangle, AeroSpace, yabai, i3/sway, Hyprland, komorebi), dictation-collision checks |
+| Platform | macOS/Windows/Linux modifier conventions, multi-OS profile+layer switching, window manager tables (Amethyst, Rectangle, AeroSpace, yabai, i3/sway, Hyprland, komorebi), dictation-collision checks, per-half battery levels on the host |
 | International | Locale keycode headers (zmk-locale-generator), unicode input per OS, dead-key gotchas, non-US shifted pairs |
 | Layouts | Any published layout: curated guidance for Colemak-DH, Graphite, Gallium, Canary, Dvorak, plus spec-driven generation for Workman, Sturdy, Focal, Engram, Hands Down, Semimak, APT and others |
 | Tooling | keymap-drawer diagrams (per-layer, dark-mode aware, trackballs drawn in place), GitHub Actions integration, README generation |
