@@ -49,12 +49,15 @@ When wiring WM control into layers or pointer gestures, confirm the user's actua
 
 Collision check before binding: dictation/voice input (often a modified Space or a held key), Spotlight/PowerToys Run, screenshot chords. A "standard" WM chord that collides with the user's dictation trigger is a field-verified failure mode.
 
-## Per-half battery levels on the host (hardware-verified on macOS)
+## Per-half battery levels on the host (hardware-verified on macOS; Windows app available)
 
 Split centrals expose only their OWN battery over the standard Bluetooth
 battery service by default; the peripheral's level never reaches the host.
-Menu bar apps that show both halves (e.g. itouuuuuuuuu/zmk-battery-bar on
-macOS) need the central to fetch and proxy it. Add to the CENTRAL's .conf:
+Host apps that show both halves need the central to fetch and proxy it:
+itouuuuuuuuu/zmk-battery-bar (macOS menu bar) and carlosedp/zmk-split-battery
+(Windows 10 19041+ tray icon with low-battery toasts, needs the .NET Desktop
+Runtime). Both read the same GATT battery services, so the firmware side is
+identical. Add to the CENTRAL's .conf:
 
 ```ini
 CONFIG_ZMK_BATTERY_REPORTING=y
