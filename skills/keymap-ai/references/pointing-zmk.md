@@ -17,6 +17,8 @@ Therefore: for any per-layer behavior on a peripheral-side device, send raw moti
 
 Cost: raw x/y over BLE instead of processed events; a report-rate-limit processor keeps traffic sane.
 
+Rate limiting is not only for the split link. A CENTRAL-side sensor whose chain reaches the host unthrottled will saturate the BLE mouse report queue during sustained motion (20 deep in v0.3; when full, hog.c blocks up to 100 ms per further report), producing cursor lag that compounds until reconnect and never appears on USB. Put a BLE-only limiter (e.g. `&zip_ble_report_rate_limit`) LAST in every host-bound chain, after any temp-layer processor so layer activation still sees full-rate motion. See pitfall 22.
+
 ## Listener child-node semantics (memorize these)
 
 From ZMK source, v0.3:
