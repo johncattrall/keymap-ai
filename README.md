@@ -9,7 +9,7 @@
   <img src="https://img.shields.io/badge/Agent%20Skills-portable-8a2be2" alt="Agent Skills standard"/>
 </p>
 
-An [Agent Skill](https://agentskills.io) that turns your coding agent into a custom-keyboard firmware expert. Audit your ZMK or QMK config, tune home row mods that never misfire, make trackballs and trackpads layer-aware, wire your window manager to ball flicks, localize for your language and OS, generate per-layer keymap diagrams with CI, and debug the failures the docs don't cover.
+An [Agent Skill](https://agentskills.io) that turns your coding agent into a custom-keyboard firmware expert. Audit your ZMK or QMK config, tune home row mods that never misfire, make trackballs and trackpads layer-aware, wire your window manager to ball flicks, localize for your language and OS, generate per-layer keymap diagrams with CI, keep multiple boards in sync across ZMK and QMK with a drift-checking CI script, and debug the failures the docs don't cover.
 
 Works with Claude Code, Codex CLI, Cursor, Gemini CLI, opencode, and any other harness supporting the Agent Skills standard.
 
@@ -66,6 +66,23 @@ flowchart LR
 
 Everything is intent-routed from natural language; no commands to memorize. The skill reads your actual config before advising, states its assumptions, and verifies version-sensitive claims against live docs instead of asserting from memory.
 
+## Keeping two boards in sync
+
+One layout, two firmwares: `scripts/sync_keymaps.py` reduces both keymaps to the same canonical form and diffs them in CI, so the boards stay independently editable but cannot silently drift apart.
+
+```mermaid
+flowchart LR
+    A["crosses.keymap<br/><i>ZMK repo</i>"] --> NA["canonical bindings<br/>(equivalence table)"]
+    B["keymap.c<br/><i>QMK repo</i>"] --> NB["canonical bindings<br/>(equivalence table)"]
+    NA --> D{"diff"}
+    NB --> D
+    D -->|"equal"| OK["in sync"]
+    D -->|"listed in sync.yaml<br/>(BT row, encoder, trackballs)"| INT["intentional,<br/>reported not failed"]
+    D -->|"anything else"| DRIFT["DRIFT: both repos'<br/>CI fails until ported"]
+```
+
+The equivalence table knows that `&hml LCTRL S` and `LCTL_T(KC_S)` are the same key, that ZMK autoshift equals a plain tap under QMK's global autoshift, that mod chords match side-insensitively, and that a ZMK transparent key equals a QMK explicit one on default-layer alternates where transparency cannot fall through. `references/sync.md` has the porting checklist behind it.
+
 ## Coverage
 
 | Area | What's inside |
@@ -88,7 +105,6 @@ Everything is intent-routed from natural language; no commands to memorize. The 
 | ZMK | **Stable** | Recipes hardware-verified on wireless splits with pointing devices |
 | QMK | **Stable** | Audit, behaviors (tap-hold/Achordion, tap dance, combos, key overrides, autoshift), layouts and diagrams hardware-verified on an RP2040 split. Pointing recipes still deferred |
 
-QMK users: everything the skill generates can be validated with `qmk compile` before flashing. The QMK tier graduated to stable the same way ZMK did, through real hardware (a full layout port to a Cheapino v2, including a wrong-board-revision debugging session that became pitfalls 23 and 24). Pointing-device recipes remain deferred until tested on real QMK pointing hardware; test reports via issues are very welcome.
 
 ## What's inside
 
