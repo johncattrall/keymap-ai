@@ -8,13 +8,14 @@ legitimately differ (board-specific hardware) are declared in a YAML config
 and reported separately as intentional.
 
 Usage:
-  sync_keymaps.py --zmk config/crosses.keymap --qmk keymaps/john/keymap.c \
+  sync_keymaps.py --zmk zmk-config/config/board.keymap \
+                  --qmk qmk-config/keymaps/default/keymap.c \
                   --config sync.yaml [--strict]
 
 Config (YAML):
   layers:            # zmk layer node order -> qmk layer enum order, by name
     - [layer_0, BASE]
-    - [graphite, GRAPHITE]
+    - [layer_1, NAV]
     ...
   ignore:            # positions that are intentionally board-specific
     SYS: [0, 1, 3, 4, 5, ...]      # by qmk layer name, 0-based position
