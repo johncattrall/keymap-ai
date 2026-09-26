@@ -5,7 +5,7 @@
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License"/></a>
   <img src="https://img.shields.io/badge/ZMK-stable-2ea44f" alt="ZMK: stable"/>
-  <img src="https://img.shields.io/badge/QMK-beta-orange" alt="QMK: beta"/>
+  <img src="https://img.shields.io/badge/QMK-stable-2ea44f" alt="QMK: stable"/>
   <img src="https://img.shields.io/badge/Agent%20Skills-portable-8a2be2" alt="Agent Skills standard"/>
 </p>
 
@@ -86,9 +86,9 @@ Everything is intent-routed from natural language; no commands to memorize. The 
 | Firmware | Tier | Meaning |
 |---|---|---|
 | ZMK | **Stable** | Recipes hardware-verified on wireless splits with pointing devices |
-| QMK | **Beta** | Audit, behaviors, layouts, diagrams; compile-verified, not yet hardware-tested. Pointing recipes deferred |
+| QMK | **Stable** | Audit, behaviors (tap-hold/Achordion, tap dance, combos, key overrides, autoshift), layouts and diagrams hardware-verified on an RP2040 split. Pointing recipes still deferred |
 
-QMK users: everything the skill generates can be validated with `qmk compile` before flashing. If you test QMK advice on hardware, open an issue with the result; that is exactly how the QMK tier graduates to stable.
+QMK users: everything the skill generates can be validated with `qmk compile` before flashing. The QMK tier graduated to stable the same way ZMK did, through real hardware (a full layout port to a Cheapino v2, including a wrong-board-revision debugging session that became pitfalls 23 and 24). Pointing-device recipes remain deferred until tested on real QMK pointing hardware; test reports via issues are very welcome.
 
 ## What's inside
 
@@ -98,9 +98,9 @@ skills/keymap-ai/
   SKILL.md                  intent routing: audit / apply / pointing / draw / layout / platform / debug
   references/
     audit-zmk.md              the audit checklist (behaviors, structure, system layer, locale, power)
-    audit-qmk.md              the QMK equivalent (beta)
+    audit-qmk.md              the QMK equivalent
     behaviors-zmk.md          timeless HRM, smart layers, mod-morphs, soft off
-    behaviors-qmk.md          tap-hold tuning, Caps Word, key overrides (beta)
+    behaviors-qmk.md          tap-hold tuning, Caps Word, key overrides
     pointing-zmk.md           per-layer motion processing: listener semantics, gestures
     devices-zmk.md            trackpads, trackpoints, encoders, displays, dongles, RGB
     os-and-locale.md          multi-OS patterns, window managers, international layouts

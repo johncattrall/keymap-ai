@@ -7,7 +7,7 @@ description: Expert assistant for ZMK and QMK keyboard firmware configs. Use whe
 
 Turn your coding agent into a keyboard firmware expert: field-verified audits, tuning and upgrades for ZMK and QMK keymaps.
 
-ZMK is the stable tier (hardware-verified); QMK is beta. Route on the user's intent, load only the references that intent needs, and always ground claims in the user's actual config files rather than assumptions.
+ZMK and QMK are both stable tier, hardware-verified; QMK pointing recipes are deferred. Route on the user's intent, load only the references that intent needs, and always ground claims in the user's actual config files rather than assumptions.
 
 ## First steps, always
 
@@ -29,7 +29,7 @@ Load `references/behaviors-zmk.md` or `references/behaviors-qmk.md` for the reci
 
 ### Pointing ("trackball", "scroll", "per-layer mouse behavior")
 
-ZMK: load `references/pointing-zmk.md` for motion processing (hardware-verified listener semantics; follow exactly, especially child-node ordering) and `references/devices-zmk.md` for device-specific setup (trackpads, trackpoints, encoders, displays, dongles). All pointing devices share the listener architecture. QMK pointing is deferred in this version: say so, offer general QMK docs guidance, and verify everything against docs.qmk.fm.
+ZMK: load `references/pointing-zmk.md` for motion processing (hardware-verified listener semantics; follow exactly, especially child-node ordering) and `references/devices-zmk.md` for device-specific setup (trackpads, trackpoints, encoders, displays, dongles). All pointing devices share the listener architecture. QMK pointing is deferred: say so, offer general QMK docs guidance, and verify everything against docs.qmk.fm.
 
 ### Draw ("diagrams", "visualize my keymap", "README images")
 
