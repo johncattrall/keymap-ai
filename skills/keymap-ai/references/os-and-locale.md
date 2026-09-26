@@ -76,6 +76,21 @@ Power cost is negligible: the peripheral already samples its battery on
 the default ~60 s interval, and a level is only transmitted when the
 integer percentage changes.
 
+## Host-side remappers are part of the keymap (audit them)
+
+macOS (Karabiner-Elements, BetterTouchTool, Hammerspoon, raw hidutil) and
+Windows (PowerToys) remap PER DEVICE. Consequences the skill must check when
+a user has more than one keyboard or gets a new one: a rule created for one
+board does not follow to the next (see pitfall 24); "works on keyboard A,
+not B, same computer" implicates the remapper before the firmware; and any
+audit of "what does this key actually do" is incomplete without asking what
+remappers run on the host. Also macOS-specific: F1-F12 handling ("standard
+function keys" vs media features) is another translation layer between the
+keycode the firmware sends and what apps see, and hotkey recorders often
+display F-keys with an "fn" glyph that is typing guidance for laptop
+keyboards, not a modifier requirement. F13-F19 bypass all of this and are
+the safe zone for app hotkeys.
+
 ## International layouts (the "my keycodes type the wrong symbols" problem)
 
 ZMK sends HID usage codes; the HOST's layout maps them to characters. `&kp SEMI` types ö on a German layout because the host says so. Tooling:

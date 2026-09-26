@@ -43,6 +43,10 @@ Load `references/layouts.md`. Give honest switching-cost guidance before generat
 
 Load `references/os-and-locale.md`: per-OS modifier conventions, the BT-profile-plus-OS-layer pattern, window manager chord tables (confirm the user's actual bindings; collision-check dictation and launcher chords), and locale headers via zmk-locale-generator for non-US layouts.
 
+### Sync ("keep my boards in sync", "port this to my other keyboard", "same layout on ZMK and QMK")
+
+Load `references/sync.md`. For porting between firmwares, translate through the equivalence table there and mind the fall-through and layer-index traps. For ongoing sync, set up `scripts/sync_keymaps.py` with a per-board YAML config (layer name map, intentional-difference positions, custom-construct equivalences) and wire it into both repos' CI so drift fails the build.
+
 ### Debug ("build failed", "keys do the wrong thing", "layer won't deactivate")
 
 Load `references/debug.md` and `references/pitfalls.md`. Match symptoms against the pitfall database first; most field problems are already catalogued there.
